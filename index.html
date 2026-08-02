@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎉</text></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="আপনার জন্ম তারিখ দিন, দেখুন এই পর্যন্ত কতগুলো একলা শুক্রবার কাটিয়েছেন! একটা মজার ফান টুল।" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700;800&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <title>বউ ছাড়া কত শুক্রবার?</title>
+    <link rel="stylesheet" href="style.css" />
+    <script async src="https://bolt.new/badge.js?s=b42ac9a0-c231-4a1b-af71-d6f86b2a2742"></script>
+  </head>
+  <body>
+    <div id="root">
+      <main class="stage">
+        <section class="certificate" id="certificate">
+          <div class="photo-box" id="photoBox">
+            <span class="photo-placeholder" id="photoPlaceholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7" />
+              </svg>
+              ছবি
+            </span>
+            <img class="photo-img" id="photoImg" alt="আপলোড করা ছবি" hidden />
+            <button type="button" class="photo-clear" id="photoClear" aria-label="ছবি মুছুন">✕</button>
+          </div>
+
+          <div class="ribbon">
+            <span class="ribbon-mark">◆</span>
+            <span class="ribbon-text">অফিসিয়াল সনদ</span>
+            <span class="ribbon-mark">◆</span>
+          </div>
+
+          <h1 class="title">বউ ছাড়া কত শুক্রবার?</h1>
+          <p class="subtitle">জন্ম তারিখ দিন, দেখে নিন এই পর্যন্ত কতগুলো “একলা শুক্রবার” উদযাপন করে ফেলেছেন।</p>
+
+          <form class="form" id="calcForm" novalidate>
+            <label class="field">
+              <span class="field-label">জন্ম তারিখ</span>
+              <input type="date" id="dobInput" name="dob" required />
+            </label>
+            <div class="field field--photo">
+              <span class="field-label">ছবি (ঐচ্ছিক)</span>
+              <input type="file" id="photoInput" class="file-input" accept="image/png, image/jpeg, image/webp" />
+              <label for="photoInput" class="file-btn">ছবি বাছাই করুন</label>
+            </div>
+            <button type="submit" class="submit-btn">
+              <span>হিসাব করুন</span>
+            </button>
+          </form>
+
+          <p class="form-error" id="formError" role="alert" aria-live="assertive"></p>
+
+          <div class="result" id="result" aria-live="polite">
+            <div class="stamp-wrap" id="stampWrap">
+              <div class="confetti-layer" id="confettiLayer"></div>
+              <svg class="stamp-svg" viewBox="0 0 220 220" aria-hidden="true">
+                <defs>
+                  <path id="stampCurveTop" d="M 30,110 A 80,80 0 0 1 190,110" />
+                  <path id="stampCurveBottom" d="M 44,150 A 66,66 0 0 0 176,150" />
+                </defs>
+                <circle class="stamp-ring-outer" cx="110" cy="110" r="102" />
+                <circle class="stamp-ring-dashed" cx="110" cy="110" r="94" />
+                <circle class="stamp-ring-inner" cx="110" cy="110" r="70" />
+                <text class="stamp-curve-text">
+                  <textPath href="#stampCurveTop" startOffset="50%" text-anchor="middle">★ একলা শুক্রবার সনদ ★</textPath>
+                </text>
+                <text class="stamp-curve-text stamp-curve-text--bottom">
+                  <textPath href="#stampCurveBottom" startOffset="50%" text-anchor="middle">প্রকৃত ও নির্ভরযোগ্য হিসাব</textPath>
+                </text>
+              </svg>
+              <div class="stamp-center">
+                <span class="stamp-number" id="fridayCount">০</span>
+                <span class="stamp-unit">টি একলা শুক্রবার</span>
+              </div>
+            </div>
+
+            <p class="age-line" id="ageLine"></p>
+
+            <div class="tier-card" id="tierCard">
+              <p class="tier-text" id="tierText"></p>
+            </div>
+          </div>
+        </section>
+
+        <footer class="page-footer">
+          <span class="serial" id="serialNumber"></span>
+          <span class="credit">Made by Tanjim</span>
+        </footer>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
