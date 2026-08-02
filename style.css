@@ -1,0 +1,531 @@
+:root {
+  --paper: #f3ecda;
+  --card: #fffcf5;
+  --ink: #2b2a28;
+  --ink-soft: #5a5650;
+  --maroon: #8c1f2b;
+  --maroon-dark: #6e1722;
+  --gold: #b4862b;
+  --gold-soft: #d8b968;
+  --olive: #6b5d45;
+  --font-display: "Anek Bangla", "Hind Siliguri", sans-serif;
+  --font-body: "Hind Siliguri", "Anek Bangla", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--paper);
+  background-image: radial-gradient(circle at 1px 1px, rgba(43, 42, 40, 0.06) 1px, transparent 0);
+  background-size: 16px 16px;
+  color: var(--ink);
+  font-family: var(--font-body);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.stage {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+/* ---------- Certificate card ---------- */
+
+.certificate {
+  position: relative;
+  width: 100%;
+  background: var(--card);
+  border: 2px solid var(--gold);
+  box-shadow:
+    inset 0 0 0 6px var(--paper),
+    inset 0 0 0 8px var(--maroon-dark),
+    0 18px 40px -18px rgba(43, 20, 10, 0.45);
+  padding: 40px clamp(20px, 6vw, 52px) 36px;
+  text-align: center;
+}
+
+.certificate::before,
+.certificate::after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border: 2px solid var(--gold);
+  top: 14px;
+}
+
+.certificate::before {
+  left: 14px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.certificate::after {
+  right: 14px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.photo-box {
+  position: absolute;
+  top: 40px;
+  right: clamp(18px, 6vw, 40px);
+  width: 76px;
+  height: 96px;
+  border: 2px solid var(--maroon);
+  box-shadow: inset 0 0 0 3px var(--paper), inset 0 0 0 4px var(--gold-soft);
+  background: var(--paper);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: var(--olive);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.photo-placeholder svg {
+  width: 26px;
+  height: 26px;
+  opacity: 0.55;
+}
+
+.photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-clear {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  background: var(--maroon);
+  color: var(--card);
+  font-size: 11px;
+  line-height: 1;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-clear.is-visible {
+  display: flex;
+}
+
+.photo-clear:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.ribbon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--maroon);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.28em;
+  margin-bottom: 14px;
+}
+
+.ribbon-mark {
+  color: var(--gold);
+  font-size: 10px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(28px, 6vw, 38px);
+  line-height: 1.25;
+  margin: 0 0 10px;
+  color: var(--maroon-dark);
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 42ch;
+  margin: 0 auto 28px;
+}
+
+/* ---------- Form ---------- */
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 6px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  text-align: right;
+}
+
+.field-label {
+  font-size: 13px;
+  color: var(--olive);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.field input[type="date"] {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--ink);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--gold-soft);
+  padding: 6px 2px 8px;
+  min-width: 190px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.field input[type="date"]:focus-visible {
+  border-color: var(--maroon);
+}
+
+.field--photo {
+  align-items: center;
+}
+
+.file-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.file-btn {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--maroon-dark);
+  border: 1.5px solid var(--gold);
+  padding: 8px 16px;
+  cursor: pointer;
+  background: transparent;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.file-btn:hover {
+  background: var(--maroon);
+  color: var(--card);
+  border-color: var(--maroon);
+}
+
+.file-input:focus-visible + .file-btn {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.submit-btn {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--card);
+  background: var(--maroon);
+  border: none;
+  padding: 12px 26px;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.submit-btn:hover {
+  background: var(--maroon-dark);
+}
+
+.submit-btn:active {
+  transform: scale(0.97);
+}
+
+.submit-btn:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.form-error {
+  min-height: 20px;
+  color: var(--maroon);
+  font-size: 14px;
+  margin: 6px 0 0;
+}
+
+/* ---------- Result / stamp ---------- */
+
+.result {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 28px;
+}
+
+.result.is-visible {
+  display: flex;
+}
+
+.stamp-wrap {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto;
+  transform: scale(0.4) rotate(-16deg);
+  opacity: 0;
+}
+
+.stamp-wrap.stamp-in {
+  animation: stampThump 0.55s cubic-bezier(0.2, 1.6, 0.4, 1) forwards;
+}
+
+@keyframes stampThump {
+  0% {
+    transform: scale(0.4) rotate(-16deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.08) rotate(3deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(-4deg);
+    opacity: 1;
+  }
+}
+
+.stamp-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.stamp-ring-outer {
+  fill: none;
+  stroke: var(--maroon);
+  stroke-width: 3;
+}
+
+.stamp-ring-dashed {
+  fill: none;
+  stroke: var(--maroon);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 2 7;
+}
+
+.stamp-ring-inner {
+  fill: none;
+  stroke: var(--maroon);
+  stroke-width: 1.5;
+}
+
+.stamp-curve-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14.5px;
+  fill: var(--maroon);
+  letter-spacing: 0.05em;
+}
+
+.stamp-curve-text--bottom {
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.stamp-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  color: var(--maroon-dark);
+}
+
+.stamp-number {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 44px;
+  line-height: 1;
+}
+
+.stamp-unit {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.confetti-layer {
+  position: absolute;
+  inset: -20px;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 7px;
+  height: 12px;
+  background: var(--gold);
+  opacity: 0.95;
+  animation-name: confettiFall;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--cx), var(--cy)) rotate(var(--cr));
+    opacity: 0;
+  }
+}
+
+.age-line {
+  margin: 18px 0 0;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.tier-card {
+  margin-top: 16px;
+  padding: 14px 18px;
+  background: var(--paper);
+  border: 1px dashed var(--gold);
+  max-width: 40ch;
+}
+
+.tier-text {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--maroon-dark);
+  font-weight: 500;
+}
+
+/* ---------- Footer ---------- */
+
+.page-footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+  font-size: 12.5px;
+  color: var(--olive);
+  letter-spacing: 0.02em;
+}
+
+.credit {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--maroon-dark);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 420px) {
+  .certificate {
+    padding: 32px 18px 28px;
+  }
+
+  .photo-box {
+    position: static;
+    margin: 0 auto 16px;
+  }
+
+  .form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .field {
+    align-items: center;
+    text-align: center;
+  }
+
+  .field input[type="date"] {
+    min-width: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .submit-btn {
+    width: 100%;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .stamp-wrap.stamp-in {
+    animation: none;
+    transform: none;
+    opacity: 1;
+  }
+
+  .confetti-piece {
+    display: none;
+  }
+
+  .submit-btn,
+  .field input[type="date"] {
+    transition: none;
+  }
+    }
